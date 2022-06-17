@@ -13,11 +13,11 @@ import "../Contact/Contact.css"
 import Footer from "../Footer/Footer"
 import "../Footer/Footer.css"
 
-export default function Home({ product }) {
+export default function Home({ product, setProduct, category, setCategory }) {
   return (
     <div className="home">
       <Hero/>
-      <SubNavbar/>
+      <SubNavbar product={product} setProduct={setProduct} category={category} setCategory={setCategory}/>
       <ProductGrid product={product}/>
       <About/>
       <Contact/>

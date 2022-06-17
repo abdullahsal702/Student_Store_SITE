@@ -69,8 +69,8 @@ export default function Footer() {
               <div className="link-column">
                 <h4>Our App</h4>
                 <ul>
-                  <li><img src="../assets/app_store.a7d8c549.svg" alt="app store"/></li>
-                  <li><img src="../assets/google_play.27aab7c8.svg" alt="google play store"/></li>
+                  <li><img src="" alt="app store"/></li>
+                  <li><img src="" alt="google play store"/></li>
                 </ul>
               </div>
             </div>

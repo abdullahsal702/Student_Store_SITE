@@ -2,11 +2,22 @@ import * as React from "react"
 import "./Sidebar.css"
 
 export default function Sidebar() {
+
+  const handleOnToggle = (event) => {
+    if (event.target.offsetParent.classList.contains("closed")) {
+      event.target.offsetParent.classList.remove("closed")
+      event.target.offsetParent.classList.add("open")
+    } else {
+      event.target.offsetParent.classList.add("closed")
+      event.target.offsetParent.classList.remove("open")
+    }
+  }
+
   return (
     <section className="sidebar closed">
       <div className="wrapper">
-        <button class="toggle-button button closed">
-          <i class="material-icons md-48">arrow_forward</i>
+        <button className="toggle-button button closed" onClick={handleOnToggle}>
+          <i className="material-icons md-48">arrow_forward</i>
         </button>
         <div className="shopping-cart">
           <div className="cart-icons">

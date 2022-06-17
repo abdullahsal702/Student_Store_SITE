@@ -11,6 +11,7 @@ export default function App() {
 
   const [product, setProduct] = useState([])
   const [isFetching, setIsFetching] = useState(false)
+  const [category, setCategory] = useState("")
 
   // issue when I refresh the page setProduct
   async function getResults() {
@@ -48,7 +49,7 @@ export default function App() {
           <Navbar />
           <Sidebar />
           <Routes>
-            <Route path="/" element={<Home product={product}/>}></Route>
+            <Route path="/" element={<Home product={product} setProduct={setProduct} category={category} setCategory={setCategory}/>}></Route>
           </Routes>
         </main>
       </BrowserRouter>
