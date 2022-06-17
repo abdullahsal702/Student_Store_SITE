@@ -1,5 +1,5 @@
 import * as React from "react"
-import studentStore from "../../../assets/student_store_icon.svg"
+import studentStore from "../../assets/student_store_icon.svg"
 
 
 export default function Hero() {

@@ -1,6 +1,7 @@
 import * as React from "react"
 import codePathLogo from "../../assets/codepath.svg"
 import twitterLogo from "../../assets/twitter.svg"
+import { Link } from "react-router-dom"
 
 import "./Navbar.css"
 
@@ -18,10 +19,10 @@ export default function Navbar() {
         </div>
         <div className="links">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About Us</a></li>
-            <li><a href="/">Contact Us</a></li>
-            <li><a href="/">Buy Now</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/#About">About Us</Link></li>
+            <li><Link to="/#Contact">Contact Us</Link></li>
+            <li><Link to="/#Buy">Buy Now</Link></li>
           </ul>
         </div>
       </div>

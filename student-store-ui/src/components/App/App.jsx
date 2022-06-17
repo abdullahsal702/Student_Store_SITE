@@ -5,32 +5,53 @@ import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
 import "./App.css"
 import axios from "axios"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 export default function App() {
 
+  const [product, setProduct] = useState([])
+  const [isFetching, setIsFetching] = useState(false)
 
-
+  // issue when I refresh the page setProduct
   async function getResults() {
-    let url = "https://codepath-store-api.herokuapp.com/store"
-    let response = await axios.get(url)
-    console.log(response.data)
+    setIsFetching(true)
+    try {
+      let response = await axios.get("https://codepath-store-api.herokuapp.com/store")
+      setProduct(response.data.products)
+    } catch (error) {
+      console.error(error)
+      setIsFetching(false)
+    }
+    // axios.get("https://codepath-store-api.herokuapp.com/store")
+    //   .then(function (response) {
+    //     return response 
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error)
+    //   })
+    //   .then(function (response) {
+    //     setProduct(response.data.products)
+    //   }) 
   }
 
   useEffect(() => {
     getResults()
-  })
-
+    console.log(product) 
+    console.log("isFetching is: ", isFetching)
+  }, [])
 
   return (
     <div className="app">
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <main>
           {/* YOUR CODE HERE! */}
           <Navbar />
           <Sidebar />
-          <Home />
+          <Routes>
+            <Route path="/" element={<Home product={product}/>}></Route>
+          </Routes>
         </main>
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     </div>
   )
 }
