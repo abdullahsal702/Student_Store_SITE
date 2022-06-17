@@ -13,12 +13,19 @@ import "../Contact/Contact.css"
 import Footer from "../Footer/Footer"
 import "../Footer/Footer.css"
 
-export default function Home({ product, setProduct, category, setCategory }) {
+export default function Home({ currentProducts, product, setProduct, selectedCategory, setSelectedCategory, searchValue, setSearchValue }) {
   return (
     <div className="home">
       <Hero/>
-      <SubNavbar product={product} setProduct={setProduct} category={category} setCategory={setCategory}/>
-      <ProductGrid product={product}/>
+      <SubNavbar 
+        product={product} 
+        setProduct={setProduct} 
+        selectedCategory={selectedCategory} 
+        setSelectedCategory={setSelectedCategory}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue} 
+      />
+      <ProductGrid currentProducts={currentProducts}/>
       <About/>
       <Contact/>
       <Footer/>

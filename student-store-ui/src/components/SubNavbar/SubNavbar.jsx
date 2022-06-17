@@ -1,36 +1,15 @@
 import * as React from "react"
 import axios from "axios"
 
-export default function SubNavbar({ product, setProduct, category, setCategory }) {
+export default function SubNavbar({ product, setProduct, selectedCategory, setSelectedCategory, searchValue, setSearchValue  }) {
 
   const handleOnTextChange = (event) => {
-    setCategory(event.target.value)
-    getFullProduct()
-    let selectedProduct = fullProduct.filter((item) => {
-      return (category == "all" ? true : item.category === category)
-    })
-    setProduct(selectedProduct)
-  }
-
-  const [fullProduct, setFullProduct] = React.useState([])
-
-  async function getFullProduct() {
-    try {
-      let response = await axios.get("https://codepath-store-api.herokuapp.com/store")
-      setFullProduct(response.data.products)
-    } catch (error) {
-      console.error(error)
-    }
+    setSearchValue(event.target.value)
+    // console.log(searchValue)
   }
 
     const handleCategoryChange = (event) => {
-      getFullProduct()
-      setCategory(event.target.id)
-      let selectedProduct = fullProduct.filter((item) => {
-        return (event.target.id == "all" ? true : item.category == category)
-      })
-      setProduct(selectedProduct)
-      console.log(event)
+      setSelectedCategory(event.target.id)
     }
 
     return (
@@ -39,7 +18,7 @@ export default function SubNavbar({ product, setProduct, category, setCategory }
   
           <div className="row">
             <div className="search-bar">
-              <input type="text" name="search" placeholder="Search" value={category} onChange={handleOnTextChange}/>
+              <input type="text" name="search" placeholder="Search" onChange={handleOnTextChange}/>
               <i className="material-icons">search</i>
             </div>
             <div className="links">
