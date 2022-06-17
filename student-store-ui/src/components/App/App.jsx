@@ -11,6 +11,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 export default function App() {
 
   const [product, setProduct] = useState([])
+  //for api calls
+  const [error, setError] = useState("")
   const [isFetching, setIsFetching] = useState(false)
   //used in subNavbar
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -29,20 +31,21 @@ export default function App() {
   })
 
   async function getResults() {
+    setError("")
     setIsFetching(true)
     try {
       let response = await axios.get("https://codepath-store-api.herokuapp.com/store")
       setProduct(response.data.products)
+      console.log(product) 
     } catch (error) {
       console.error(error)
-      setIsFetching(false)
+      setError("There was an error")
     }
+    setIsFetching(false)
   }
 
   useEffect(() => {
     getResults()
-    console.log(product) 
-    console.log("isFetching is: ", isFetching)
   }, [])
 
   return (
@@ -63,7 +66,9 @@ export default function App() {
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}/>}>
             </Route>
-            <Route path="/products/:productId" element={<ProductDetail/>}></Route>
+            <Route path="/products/:productId" 
+              element={<ProductDetail setError={setError} isFetching={isFetching} setIsFetching={setIsFetching}/>}>
+            </Route>
           </Routes>
         </main>
       </BrowserRouter>

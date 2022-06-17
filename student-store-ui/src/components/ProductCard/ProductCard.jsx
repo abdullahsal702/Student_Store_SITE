@@ -1,19 +1,22 @@
 import * as React from "react"
 import { Link } from "react-router-dom"
 
-export default function ProductCard({ item }) {
+export default function ProductCard({ product, productId, showDescription }) {
     return (
       <div className="product-card">
         <div className="media">
-          <Link to={"/products/"+item.id}>
-            <img src={item.image} alt="product cover" loading="lazy"/>
+          <Link to={"/products/"+productId}>
+            <img src={product.image} alt="product cover" loading="lazy"/>
           </Link>
         </div>
         <div className="product-info">
           <div className="main-info">
-            <p className="product-name">{item.name}</p>
-            <p className="product-price">${item.price}</p>
+            <p className="product-name">{product.name}</p>
+            <p className="product-price">${product.price.toFixed(2)}</p>
           </div>
+        <div className="description">
+          <p className="product-description">{showDescription ? product.description : null}</p>
+        </div>
         </div>
       </div>
     )

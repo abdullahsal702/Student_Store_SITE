@@ -44,3 +44,11 @@ a {
     font-size: 14px;
 }
 
+.product-card .desc {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    width: 100%;
+}

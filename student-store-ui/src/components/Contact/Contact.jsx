@@ -1,4 +1,5 @@
 import * as React from "react"
+import happyPerson from "../../assets/happy_person.svg"
 
 export default function Contact() {
     return (
@@ -26,6 +27,9 @@ export default function Contact() {
                 </span>
               </li>
             </ul>
+            <div className="media">
+              <img src={happyPerson} alt="codepath large"/>
+            </div>
           </div>
         </div>
       </div>

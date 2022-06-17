@@ -1,4 +1,6 @@
 import * as React from "react"
+import Logo from "../Logo/Logo"
+import "../Logo/Logo.css"
 import codePathLogo from "../../assets/codepath.svg"
 import twitterLogo from "../../assets/twitter.svg"
 import { Link } from "react-router-dom"
@@ -9,9 +11,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="content">
-        <div className="logo">
-          <img src={codePathLogo} alt="logo"/>
-        </div>
+        <Logo/>
         <div className="socials">
           <img src={twitterLogo} alt="twitter"/>
           <img src="" alt="instagram"/>

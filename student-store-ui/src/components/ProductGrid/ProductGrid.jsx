@@ -2,9 +2,7 @@ import * as React from "react"
 import ProductCard from "../ProductCard/ProductCard"
 import "../ProductCard/ProductCard.css"
 
-export default function ProductGrid({ currentProducts }) {
-
-  
+export default function ProductGrid({ products }) {
 
     return (
       <div className="container">
@@ -12,8 +10,8 @@ export default function ProductGrid({ currentProducts }) {
           <div className="content">
             <h3>Best Selling Products</h3>
             <div className="grid">
-              {currentProducts.map((item) => {
-                return <ProductCard item={item} key={item.id}/>
+              {products.map((item) => {
+                return <ProductCard product={item} key={item.id} productId={item.id} showDescription={false}/>
               })}
             </div>
           </div>

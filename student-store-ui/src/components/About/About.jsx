@@ -1,4 +1,5 @@
 import * as React from "react"
+import giantCodePath from "../../assets/giant_codepath.svg"
 
 export default function About() {
     return (
@@ -12,7 +13,7 @@ export default function About() {
               <p>All proceeds go towards bringing high quality CS education to college students around the country.</p>
             </div>
             <div className="media">
-              <img src="" alt="codepath-large"/>
+              <img src={giantCodePath} alt="codepath-large"/>
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@ export default function Home({ currentProducts, product, setProduct, selectedCat
         searchValue={searchValue}
         setSearchValue={setSearchValue} 
       />
-      <ProductGrid currentProducts={currentProducts}/>
+      <ProductGrid products={currentProducts}/>
       <About/>
       <Contact/>
       <Footer/>
