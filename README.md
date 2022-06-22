@@ -23,7 +23,7 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 
 ### Walkthrough Video
 
-[`Video Walkthrough Link`]([http://g.recordit.co/4Drc3KkzZG.gif](http://g.recordit.co/NmYcSm7gEB.gif)
+[`Video Walkthrough Link`]([http://g.recordit.co/4Drc3KkzZG.gif](http://g.recordit.co/NmYcSm7gEB.gif))
 
 #### Stretch Features
 
