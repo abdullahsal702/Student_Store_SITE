@@ -88,7 +88,7 @@
 
 .shopping-cart .product-row span {
     flex: 1;
-    color: #fff;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -102,3 +102,41 @@
     justify-content: center;
 }
 
+.shopping-cart .receipt {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+    color: black;
+}
+
+.shopping-cart .receipt .receipt-subtotal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.shopping-cart .receipt .label {
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.shopping-cart .receipt span {
+    flex: 1;
+}
+
+.shopping-cart .receipt span.center {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.shopping-cart .receipt .receipt-subtotal, .shopping-cart .receipt .receipt-taxes, .shopping-cart .receipt .receipt-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
