@@ -17,6 +17,18 @@ export default function CheckoutForm(){
                     <input name="email" className="checkout-form-input" type="email" placeholder="student@codepath.org" value=""/>                
                 </div>
             </div>
+            <div className="field">
+                <div className="control">
+                    <label className="checkbox">
+                        <input name="termsAndConditions" type="checkbox"/><span className="label">I agree to the <a href="#terms-and-conditions">terms and conditions</a></span>
+                    </label>
+                </div>
+            </div>
+            <div className="field">
+                <div className="control">
+                    <button className="button checkout-button">Checkout</button>
+                </div>
+            </div>
         </div>
     ) 
 }
