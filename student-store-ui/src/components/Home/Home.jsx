@@ -13,7 +13,7 @@ import "../Contact/Contact.css"
 import Footer from "../Footer/Footer"
 import "../Footer/Footer.css"
 
-export default function Home({ currentProducts, product, setProduct, selectedCategory, setSelectedCategory, searchValue, setSearchValue }) {
+export default function Home({ currentProducts, product, setProduct, selectedCategory, setSelectedCategory, searchValue, setSearchValue, shoppingCart, handleAddItemToCart, handleRemoveItemFromCart }) {
   return (
     <div className="home">
       <Hero/>
@@ -25,7 +25,7 @@ export default function Home({ currentProducts, product, setProduct, selectedCat
         searchValue={searchValue}
         setSearchValue={setSearchValue} 
       />
-      <ProductGrid products={currentProducts}/>
+      <ProductGrid products={currentProducts} shoppingCart={shoppingCart} handleAddItemToCart={handleAddItemToCart} handleRemoveItemFromCart={handleRemoveItemFromCart}/>
       <About/>
       <Contact/>
       <Footer/>

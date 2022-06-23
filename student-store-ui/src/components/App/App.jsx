@@ -17,6 +17,50 @@ export default function App() {
   //used in subNavbar
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [searchValue, setSearchValue] = useState("")
+  //sidebar 
+  const [isOpen, setIsOpen] = useState(false)
+  const [shoppingCart, setShoppingCart] = useState([])
+
+  const handleOnToggle = () => {
+    setIsOpen(true)
+  }
+
+  function handleAddItemToCart(productId) { 
+    let tempCart = [...shoppingCart]
+    let isFound = false 
+    if (tempCart.length == 0){
+      tempCart.push({itemId : productId, quantity : 1}) 
+      setShoppingCart(tempCart)
+      return
+    }
+    for (let i = 0; i < tempCart.length; i++){
+      if (tempCart[i].itemId === productId){
+        tempCart[i].quantity += 1  
+        isFound = true
+        break
+      }
+    }
+    if (isFound == false){
+      tempCart.push({itemId : productId, quantity : 1}) 
+    }
+    setShoppingCart(tempCart)
+  }
+
+  function handleRemoveItemFromCart(productId){
+    let tempCart = [...shoppingCart]
+    for (let i = 0; i < tempCart.length; i++){
+      if (tempCart[i].itemId === productId){
+        tempCart[i].quantity -= 1  
+        tempCart[i].quantity < 0 ? tempCart[i].quantity = 0 : null
+        break
+      }
+    }
+    tempCart = tempCart.filter((element) => {
+      return (element.quantity > 0)
+    })
+    setShoppingCart(tempCart)
+  }
+
 
   const currentProducts = product.filter((item) => {
     try {
@@ -64,7 +108,10 @@ export default function App() {
                 selectedCategory={selectedCategory} 
                 setSelectedCategory={setSelectedCategory}
                 searchValue={searchValue}
-                setSearchValue={setSearchValue}/>}>
+                setSearchValue={setSearchValue}
+                shoppingCart={shoppingCart}
+                handleAddItemToCart={handleAddItemToCart}
+                handleRemoveItemFromCart={handleRemoveItemFromCart}/>}>
             </Route>
             <Route path="/products/:productId" 
               element={<ProductDetail setError={setError} isFetching={isFetching} setIsFetching={setIsFetching}/>}>
