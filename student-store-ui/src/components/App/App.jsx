@@ -22,7 +22,7 @@ export default function App() {
   const [shoppingCart, setShoppingCart] = useState([])
 
   const handleOnToggle = () => {
-    setIsOpen(true)
+    setIsOpen(!isOpen)
   }
 
   function handleAddItemToCart(productId) { 
@@ -98,7 +98,7 @@ export default function App() {
         <main>
           {/* YOUR CODE HERE! */}
           <Navbar />
-          <Sidebar />
+          <Sidebar isOpen={isOpen} product={product} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart}/>
           <Routes>
             <Route path="/" 
               element={<Home 
