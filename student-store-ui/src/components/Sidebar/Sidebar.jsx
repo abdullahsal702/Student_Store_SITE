@@ -5,7 +5,7 @@ import "../ShoppingCart/ShoppingCart.css"
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
 import "../CheckoutForm/CheckoutForm.css"
 
-export default function Sidebar({isOpen, product, handleOnToggle, shoppingCart}) {
+export default function Sidebar({isOpen, product, handleOnToggle, shoppingCart, checkoutForm, handleOnCheckoutFormChange, handleOnSubmitCheckoutForm, receipt}) {
 
   return (
     <section className={"sidebar " + (isOpen ? "open" : "closed")}>
@@ -21,7 +21,7 @@ export default function Sidebar({isOpen, product, handleOnToggle, shoppingCart})
             <span className="cart-icon icon button"><i className="material-icons md-48">monetization_on</i></span>
             <span className="cart-icon icon button"><i className="material-icons md-48">fact_check</i></span>
           </div>} 
-          {isOpen ? <CheckoutForm isOpen={isOpen}/> : null}
+          {isOpen ? <CheckoutForm isOpen={isOpen} checkoutForm={checkoutForm} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} receipt={receipt}/> : null}
         </div>
       </div>
     </section>

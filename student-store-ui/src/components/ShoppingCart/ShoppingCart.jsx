@@ -40,17 +40,17 @@ export default function ShoppingCart({isOpen, shoppingCart, product}){
                         <span></span>
                         <span className="center subtotal">{"$"+subTotal.toFixed(2)}</span>
                     </div>
-                    <div class="receipt-taxes">
-                        <span class="label">Taxes and Fees</span>
+                    <div className="receipt-taxes">
+                        <span className="label">Taxes and Fees</span>
                         <span></span>
                         <span></span>
-                        <span class="center">{"$"+taxes.toFixed(2)}</span>
+                        <span className="center">{"$"+taxes.toFixed(2)}</span>
                     </div>
-                    <div class="receipt-total">
-                        <span class="label">Total</span>
+                    <div className="receipt-total">
+                        <span className="label">Total</span>
                         <span></span>
                         <span></span>
-                        <span class="center total-price">{"$"+total.toFixed(2)}</span>
+                        <span className="center total-price">{"$"+total.toFixed(2)}</span>
                     </div>
                 </div>
 

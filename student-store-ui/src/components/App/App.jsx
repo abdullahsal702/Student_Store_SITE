@@ -20,6 +20,12 @@ export default function App() {
   //sidebar 
   const [isOpen, setIsOpen] = useState(false)
   const [shoppingCart, setShoppingCart] = useState([])
+  //checkout 
+  const [checkoutForm, setCheckoutForm] = useState({
+    name: "", 
+    email: ""
+  })
+  const [receipt, setReceipt] = useState([])
 
   const handleOnToggle = () => {
     setIsOpen(!isOpen)
@@ -61,6 +67,22 @@ export default function App() {
     setShoppingCart(tempCart)
   }
 
+  function handleOnCheckoutFormChange(name, value){
+    setCheckoutForm({
+      ...checkoutForm, [name]: value
+    })
+  }
+
+  const handleOnSubmitCheckoutForm = async (evt) => {
+    evt.preventDefault() 
+    try {
+      const response = await axios.post("http://localhost:3001/store", {user: checkoutForm, shoppingCart: shoppingCart}) 
+      setReceipt(response.data.purchase.receipt)
+      console.log(receipt)
+    } catch(err) {
+      console.log(err)
+    }
+  }
 
   const currentProducts = product.filter((item) => {
     try {
@@ -78,7 +100,7 @@ export default function App() {
     setError("")
     setIsFetching(true)
     try {
-      let response = await axios.get("https://codepath-store-api.herokuapp.com/store")
+      let response = await axios.get("http://localhost:3001/store")
       setProduct(response.data.products)
       console.log(product) 
     } catch (error) {
@@ -98,7 +120,7 @@ export default function App() {
         <main>
           {/* YOUR CODE HERE! */}
           <Navbar />
-          <Sidebar isOpen={isOpen} product={product} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart}/>
+          <Sidebar isOpen={isOpen} product={product} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} checkoutForm={checkoutForm} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} receipt={receipt}/>
           <Routes>
             <Route path="/" 
               element={<Home 
